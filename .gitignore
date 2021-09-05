@@ -1,0 +1,5 @@
+__pycache__/
+.idea/
+res.jpg
+token.json
+session.json
