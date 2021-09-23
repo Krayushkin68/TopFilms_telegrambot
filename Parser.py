@@ -20,6 +20,8 @@ def parse_kinopoisk(zhanr, year, country):
     try:
         for el in html.find_all('div', attrs={'class': 'desktop-seo-selection-film-item selection-list__film'}):
             img_url = el.find('img', attrs={'class': 'selection-film-item-poster__image'}).get('src')
+            if 'http' not in img_url:
+                img_url = f'http:{img_url}'
             name = el.find('p', attrs={'class': 'selection-film-item-meta__name'}).text
             p_link = el.find('a', attrs={'class': 'selection-film-item-meta__link'}).get('href')
             rating = el.find('span', attrs={'class': 'rating__value rating__value_positive'}).text
